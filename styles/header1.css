@@ -1,0 +1,43 @@
+.header{
+    position: absolute;
+    display: flex;
+  }
+  .menu .listimenu{
+    position: absolute;
+   
+  }
+  .listimenu li a{
+    text-decoration: none;
+    color: black;
+  }
+  .logo{
+    margin-left: 70px;
+  }
+  .menu ul{
+      display: flex;
+      flex-direction: row;
+      list-style-type: none;
+      gap:50px;
+      margin-top: 30px;
+      margin-left: 50px;
+      font-size: 10px;
+      font-style: normal;
+      font-weight: 500;
+      font-size: 20px;
+      text-align: center; 
+  }
+  .bt1 a{
+    font-weight: 700;
+    color: black;
+    text-decoration: none;
+  }
+  
+  .bt1 {
+    border: none;
+    width: 100px;
+    height: 40px; 
+    border-radius: 10px ;
+    /* background: gray; */
+    margin-top: 20px;
+    margin-left: 25px;
+  }

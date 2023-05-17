@@ -1,0 +1,50 @@
+.ss2{
+    width: 20%;
+}
+  
+
+.card {
+    width: 80%;
+    margin: auto;
+    max-width: 20%px; /* or any other value you prefer */
+    align-items: center;
+    justify-content: center;
+    display: inline-flex;
+  }
+  .contain{
+    width: 100%;
+    height: auto;
+    grid-gap: 25px;
+    grid-template-columns: repeat(4, 1fr);
+    /* display: grid; */
+}
+.containershow{
+    height:auto;
+    display: grid;
+}
+.rounded{
+    width: 200px;
+    height: 200px;
+}
+.col-lg-6{
+    width: 1fr;
+    margin: auto;
+    max-width: 100%;
+    background: white;
+}
+.contain{
+    align-items: center;
+    justify-content: center;
+    justify-items: center;
+   
+}
+.justify-content-evenly{
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    margin-top: 20px;
+}
+.modal{
+    min-height: 100vh;
+    
+}

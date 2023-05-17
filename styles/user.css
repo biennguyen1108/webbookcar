@@ -1,0 +1,473 @@
+/* CSS header và section 1*/
+.lopphu {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Màu đen và độ mờ */
+  z-index: 2; /* Đảm bảo lớp phủ nằm trên .section1 */
+}
+.section1 {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+}
+
+.section1::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('../images/21.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 1.0; /* Độ mờ của lớp phủ */
+}
+
+.section1-content-left {
+  font-weight: bold;
+  color: white;
+  width: 70%;
+  padding-top: 10px;
+  position: relative;
+  z-index: 99;
+}
+
+#form-pickUp-location {
+  background-color: aliceblue;
+}
+#form-drop-location {
+  background-color: aliceblue;
+}
+.section1-form table{
+  margin: auto;
+  
+}
+.section1-form {
+  width: 100%;
+}
+.section1-content-right {
+  color: aliceblue;
+  font-weight: bold;
+  width:50%;
+  padding-top: 20px;
+  height: 250px;
+  z-index: 99;
+  background-color: rgba(4, 4, 4, 0.666);
+}
+.section1-content {
+  padding-top: 0px;
+  display: flex;
+  margin: auto;
+  gap: 30px;
+  justify-content: space-around;
+  width: 70%;
+ 
+  }
+  .section1-content-left {
+    font-weight: bold;
+    color: #fff; /* Màu chữ trắng */
+    width: 60%;
+    padding-top: 10px;
+  }
+  
+
+
+/* .slideshow-container{
+  position: absolute;
+  z-index: 1;
+  width: 100%;
+  height: 100vh;
+} */
+/* ----------------------------*/
+
+/* CSS session 2 */
+.latest-blog{
+    padding: 10px 0px;
+    width: 100%;
+    /* height: auto; */
+    background: #5b5757;
+ 
+  }
+  .blog-box{
+    -webkit-box-shadow: 0px 5px 35px 0px rgba(69, 69, 70, 0.15);
+    box-shadow: 0px 5px 35px 0px rgba(20, 20, 20, 0.15);
+    background: #ffffff;
+    margin-bottom: 30px;
+    height: 550px;
+  }
+  .blog-content{
+    position: relative;
+  }
+  .title-blog{
+    padding: 30px 15px 30px 45px;
+  }
+  .title-blog h3{
+    font-size: 20px;
+    font-weight: 700;
+    color: #010101;
+  }
+  .title-blog p{
+    margin: 0px;
+  }
+  .option-blog {
+    /* position: absolute; */
+    top: 0px;
+    left: 0px;
+    top: 50%;
+    transform: translate(0%,-50%);
+  }
+  .option-blog li a{
+    background: #010101;
+    display: inline-block;
+    font-size: 18px;
+    color: #ffffff;
+    width: 34px;
+    height: 34px;
+    text-align: center;
+    line-height: 34px;
+  }
+  .option-blog li a:hover{
+    background: #d33b33;
+    color: #ffffff;
+  }
+  .tooltip-inner {
+    background-color: #d33b33;
+  }
+  .tooltip.bs-tooltip-right .arrow:before {
+    border-right-color: #d33b33 !important;
+    padding-top: 0px !important;
+    top: 0px !important;
+  }
+  .tooltip.bs-tooltip-left .arrow:before {
+    border-right-color: #d33b33 !important;
+  }
+  .tooltip.bs-tooltip-bottom .arrow:before {
+    border-right-color: #d33b33 !important;
+  }
+  .tooltip.bs-tooltip-top .arrow:before {
+    border-right-color: #d33b33 !important;
+  }
+  .title-all{
+    margin-bottom: 30px;
+  }
+  .title-all h1{
+    font-size: 32px;
+    font-weight: 700;
+    color: #010101;
+  }
+  .title-all p{
+    color: #999999;
+    font-size: 16px;
+  }
+  .text-title2 p{
+    color: #999999;
+    font-size: 16px;
+  }
+  .products-box{
+    padding: 70px 0px;
+  }
+  .special-menu{
+    margin-bottom: 40px;
+  }
+  .filter-button-group{
+    display: inline-block;
+  }
+  .filter-button-group button{
+    background: #d33b33;
+    color: #ffffff;
+    border: none;
+    cursor: pointer;
+    padding: 5px 30px;
+    font-size: 18px;
+  }
+  .filter-button-group button.active{
+    background: #010101;
+  }
+  
+/* SC6 */
+.sc6{
+    padding: 10px 0px;
+    width: 100%;
+    height: 550px;
+
+}
+.sc6 .wrap{
+
+    justify-content: center
+}
+.sc6 .container-sc6 .text-title2{
+	color: black;
+    font-size: 18px;
+    font-weight: 300px;
+    line-height: 52px;
+    text-align:center ;
+	
+}
+.sc6 .container-sc6 .text-title1{
+	color: black;
+  font-size: 35px;
+    letter-spacing: 1px;
+    font-weight: bold;
+    line-height: 20px;
+    text-align: center;
+	
+}
+.sc6 .container-sc6 .wrap .main-text{
+	height: 250px;
+	width: 216px;
+	border-radius: 5%;
+	background-color: #595959;
+	text-align: center;
+	margin-right: 10px;
+}
+
+.sc6 .container-sc6 .wrap .icon{
+	color: #d4651f;
+	text-align: center;
+	padding-top: 2rem;
+	font-size: 20px;
+
+}
+.sc6 .container-sc6 .wrap{
+	display: flex;
+	flex-direction: row;
+  margin-bottom: 10px;
+}
+.name p{
+  color: #010101;
+}
+.sc6 .container-sc6 .review_details .main-text .name p{
+	text-align: center;
+    font-weight: 200;
+    font-size: 14px;
+    text-transform: capitalize;
+    color: black;
+    z-index: 99;
+
+}
+.sc6 .container-sc6 .avatar img{
+	align-items: center;
+	border-radius: 50%;
+}
+
+
+.sc6 .container-sc6 .wrap p{
+	color: #fff;
+	padding: 0.8rem;
+	border-radius: 160px;
+
+
+}
+
+
+/* ------------------- */
+
+/* CSS trang checkout */
+
+/* form nhập thông tin  */
+.form-information {
+    width: 50%;
+    margin: auto;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    line-height: 50px;
+}
+.title {
+    font-weight: bold;
+}
+.required {
+    color:red;
+}
+.form-input {
+    width: 70%;
+    height: 40px;
+}
+.form-information-group {
+    margin-left: 20%;
+}
+.submit {
+    width:70px;
+    height:30px;
+    background-color: black;
+    color: aliceblue;
+}
+.cancel {
+    width:70px;
+    height:30px;
+    border:none;
+}
+
+/* form hiển thị thông tin chi tiết hoá đơn */
+.form-information-checkout {
+    width: 50%;
+    margin: auto;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    line-height: 30px;
+}
+.checkout-group {
+    margin-left: 20%;
+}
+
+.checkout-group .form-input{
+    width: 70%;
+    height: 20px;
+    
+    
+}
+
+.checkout {
+    width:70px;
+    height:30px;
+    background-color: black;
+    color: aliceblue;
+}
+
+/* ----------------------- */
+
+.about_section{
+  background-color: #5b5757;
+  color: white;
+}
+.recent_taital {
+  width: 100%;
+  float: left;
+  font-size: 20px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+
+
+.recent_box {
+  width: 100%;
+  float: left;
+  padding-top: 20px;
+}
+
+.recent_left {
+  width: 40%;
+  float: left;
+  padding-top: 15px;
+}
+
+.recent_right {
+  width: 60%;
+  float: left;
+}
+
+
+
+
+.about_section {
+  border-top: 1px solid  rgb(204, 203, 203)  ;
+  background-color: #f8f8f8;
+  padding: 0px;
+}
+
+.text-title2 h3 {
+  font-size: 28px;
+  color: #000;
+  text-align: center;
+}
+
+.row {
+  margin-top: 0px;
+}
+
+.col-lg-7 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.about_img video {
+  width: 100%;
+  height: auto;
+  margin-bottom: 20px;
+}
+
+.like_icon h5 {
+  color: #000;
+  margin-bottom: 10px;
+}
+
+.post_text {
+  color: #777;
+  margin-bottom: 10px;
+}
+
+.most_text {
+  font-size: 24px;
+  color: #000;
+  margin-bottom: 10px;
+}
+
+.lorem_text {
+  color: #555;
+  margin-bottom: 20px;
+}
+
+.social_icon_main {
+  text-align: center;
+}
+
+.read_bt button {
+  background-color: black;
+  border: none;
+  padding: 10px 20px;
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.newsletter_main {
+  background-color: #fff;
+  padding: 20px;
+}
+
+.recent_taital {
+  font-size: 28px;
+  color:#ff5e14;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.recent_box {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.recent_left img {
+  width: 150px;
+  height: 130px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.consectetur_text {
+  font-size: 18px;
+  color: #000;
+  margin-bottom: 10px;
+}
+
+.dolor_text {
+  color: #555;
+  margin-bottom: 10px;
+}
+
+.read_bt button {
+  background-color: black;
+  border: none;
+  padding: 10px 20px;
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+  cursor: pointer;
+}
+

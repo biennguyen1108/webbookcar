@@ -1,0 +1,149 @@
+/* .container-fluid{
+    width: 100%;
+    padding: 20px;
+}
+.session{
+    width:80%;
+    margin-left: 10%;
+}
+.title{
+    background: grey;
+    width: 100%;
+   border-radius: 10px;
+   
+}
+.title p{
+    font-size: 20px;
+    padding: 3px;
+    color:white;
+}
+.infor-title h3 b{
+    color: red;
+    
+}
+.detail{
+    display: flex;
+}
+
+.detail .inf-trip{
+    width: 50%;
+}
+.detail .inf-user{
+    width: 50%;
+    margin-top: 10px;
+}
+.route b{
+    font-size:20px;
+    color:white;
+}
+.kc{
+    margin-top: 10px;
+}
+.kc h5{
+ color:white;
+}
+.border{
+    width: 100%;
+    border: 1px solid black;
+}
+.celendar b{
+    font-size: 20px;
+    color:white;
+}
+.celendar{
+    margin-top: 10px;
+}
+
+.seat b{
+    font-size: 20px;
+    color:white;
+}
+.seat{
+    margin-top: 10px;
+}
+.border{
+    margin-top: 10px;
+}
+.total{
+    margin-top: 10px;
+}
+.total b{
+    font-size: 20px;
+    color:white;
+}
+.Method-payment .method{
+    display: flex;
+}
+.cash{
+    padding: 10px;
+    display: flex;
+    color:white;
+}
+.Paypal{
+    display: flex;
+    padding: 10px;
+    color:white;
+}
+.confirm{
+    margin-left: 60%;
+}
+
+.detail{
+    margin-top: 20px;
+}
+
+.inf-trip{
+    margin-top: 10px;
+}
+.name-user{
+    margin-top: 20px;
+}
+.phone-user{
+    margin-top: 10px;
+}
+.Method-payment h4{
+    margin-top: 20px;
+} */
+
+
+/* Set font family and color for labels */
+label {
+    font-family: Arial, sans-serif;
+    color: #000000;
+  }
+  
+  /* Set font family and color for input fields */
+  input[type="text"],
+  input[type="number"],
+  input[type="datetime-local"],
+  select {
+    font-family: Arial, sans-serif;
+    color: #000000;
+    background-color: #FFFFFF;
+    border: 1px solid #000000;
+    padding: 8px;
+    margin-bottom: 16px;
+  }
+  
+  /* Set font family and color for submit button */
+  input[type="submit"] {
+    font-family: Arial, sans-serif;
+    color: #FFFFFF;
+    background-color: #FFD700;
+    border: none;
+    padding: 8px 16px;
+    margin-top: 16px;
+    cursor: pointer;
+  }
+  
+  /* Set background color for form */
+  form {
+    background-color: #FFFFFF;
+    padding: 16px;
+  }
+  
+  /* Set background color for page */
+  body {
+    background-color: #000000;
+  }
+  

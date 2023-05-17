@@ -1,0 +1,210 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+.container {
+    
+    width: 100%;
+    height: 100%;
+    background-color: darkgrey;
+}
+.header{
+    width: 100%;
+    height: 700px;
+}
+.introduce {
+    margin-top: 40px;
+
+}
+.introduce_title{
+    text-align: center;
+    font-size: 25px;
+}
+.image_content img{
+    width: 522px;
+    height: 328px;
+}
+.image_content p{
+    text-align: center;
+    margin-top: 40px;
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    margin-left: 200px;
+    margin-right: 200px;
+}
+.boxservices{
+    height:auto;
+}
+.boxservices .containerbox .box .contents{
+    margin-top: 100px;
+    display: flex;
+    margin-left: 200px;
+    margin-right: 200px;
+    grid-gap: 44px;
+}
+.contents .image img{
+    width: 150px;
+    height: 150px;
+    border-radius: 100%;
+}
+.contents .title{
+    text-align: center;
+    margin-top: 10px;
+}
+.valuebox{
+    height: auto;
+}
+.valuebox .contentss{
+    margin-top: 100px;
+}
+.titlevalue p{
+    text-align: center;
+    font-size: 25px;
+    
+}
+.include p{
+    text-align: center;
+    margin-top: 20px;
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    margin-left: 300px;
+    margin-right: 300px;
+}
+.boxcorevalue{
+    height: auto;
+}
+.boxcorevalue .content {
+    margin-top: 100px;
+    font-size: 25px;
+    text-align: center;
+}
+.boxcorevalue .content .include{
+    margin-top: 20px;
+    display:flex;
+}
+.include .image img{
+    width: 100px;
+    height: 100px;
+}
+.boxcorevalue .content .include{
+    display: flex;
+    grid-gap: 105px;
+    text-align: center;
+    margin-left: 300px;
+    margin-right: 300px;
+}
+.item .image img{
+    border-radius: 100%;
+}
+.title_item {
+    font-size: 16px;
+}
+.cont{
+    margin-top: 10px;
+    font-size: 15px;
+}
+.boxTamnhin {
+    margin-top: 50px;
+
+}
+.boxTamnhin .containss .title{
+    text-align: center;
+    font-size: 25px;
+    color: white;
+    padding-top:50px;
+}
+.boxTamnhin .containss .content{
+    text-align: center;
+    margin-top: 20px;
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    margin-left: 400px;
+    margin-right: 400px;
+    color: white;
+}
+.boxTamnhin{
+    background-color: rgb(22, 22, 22);
+    height: auto;
+}
+.boxTamnhin .content{
+    padding-bottom: 20px;
+}
+.containss .title p b{
+    margin-top: 30px;
+}
+.boxDinhhuong{
+    height:auto;
+}
+.boxDinhhuong .contain{
+    margin-top: 50px;
+}
+.boxDinhhuong .contain .title{
+    text-align: center;
+    font-size: 25px;
+    color: black;
+  
+}
+.boxDinhhuong .contain .content{
+    text-align: center;
+    margin-top: 20px;
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    margin-left: 400px;
+    margin-right: 400px;
+    color: black;
+    padding-bottom: 20px;
+}
+.boxEndAbout .contains .title {
+    text-align: center;
+    font-size: 25px;
+    color: white;
+    padding-top:50px;
+
+}
+.boxEndAbout .contains .content{
+    text-align: center;
+    margin-top: 20px;
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    margin-left: 400px;
+    margin-right: 400px;
+    color: white;
+}
+.boxEndAbout{
+    background-color: rgb(45, 45, 45);
+    height: auto;
+}
+img {
+    transition-duration: 0.3s;
+}
+img:hover {
+    transform: scale(1.2);
+}
+.image img {
+    width: 100%;
+    height: 500px;
+    transition-duration: 0.4s;
+}
+
+.image img:hover {
+    transform: scale(1.2);
+}
+
+.boxEndAbout .contains .content{
+    padding-bottom: 20px;
+}

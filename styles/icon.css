@@ -1,0 +1,57 @@
+
+    .chat-icon, .phone-icon, .facebook-icon {
+  width: 40px;
+  height: 40px;
+}
+
+/* Đặt padding của các icon */
+.chat-icon, .phone-icon, .facebook-icon {
+  padding: 8px;
+}
+
+/* Đặt margin giữa các icon */
+.phone-icon, .facebook-icon {
+  margin-top: 10px;
+}
+
+/* Đặt border-radius để các icon trở thành hình tròn */
+.chat-icon, .phone-icon, .facebook-icon {
+  border-radius: 50%;
+}
+  /* Định dạng các icon */
+.chat-icon, .phone-icon, .facebook-icon {
+  display: block;
+  text-align: center;
+  font-size: 20px;
+  color: #ffffff;
+  background-color: #000000;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.5);
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 9999;
+  opacity: 0.7;
+  transition: opacity 1s ease-in-out;
+}
+
+/* Định dạng icon khi rê chuột qua */
+.chat-icon:hover, .phone-icon:hover, .facebook-icon:hover {
+  opacity: 1;
+}
+
+/* Định dạng từng icon */
+.chat-icon {
+  bottom: 120px;
+  align-content: center;
+  background-color: #0099cc;
+}
+
+.phone-icon {
+  bottom: 70px;
+  background-color: #ff6666;
+}
+
+.facebook-icon {
+  bottom: 20px;
+  background-color: #3b5998;
+}

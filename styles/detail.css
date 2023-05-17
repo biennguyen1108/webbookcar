@@ -1,0 +1,117 @@
+/* .title-name{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    justify-items: center;
+    margin: auto;
+}
+.dayss {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    justify-items: center;
+    margin: auto;
+    text-align: center;
+    margin-top: 20px;
+}
+.price{
+    display: flex;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    justify-items: center;
+    margin: auto;
+    margin-top: 20px;
+}
+.book{
+    padding: 10px;
+}
+.ship{
+    padding: 10px;
+}
+.name-driver{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    justify-items: center;
+    margin: auto;
+    text-align: center;
+}
+.name-vehicle{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    justify-items: center;
+    margin: auto;
+    text-align: center;
+    margin-top: 10px;
+}
+.function{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    justify-items: center;
+    margin: auto;
+    text-align: center;
+    margin-top: 80px;
+} */
+
+
+.container {
+    margin-top: 20px;
+  }
+  
+  .row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .col-md-5 {
+    flex-basis: 50%;
+  }
+  
+  .col-md-7 {
+    float: left;
+    flex-basis: 50%;
+  }
+  
+  .img-fluid {
+    width: 100%;
+    height: auto;
+    border-radius: 15px;
+  }
+  
+  .title-name {
+    color: grey;
+  }
+  
+  .dayss {
+    color: red;
+  }
+  
+  .price {
+    color: grey;
+  }
+  
+  .name-driver,
+  .name-vehicle {
+    color: grey;
+  }
+  
+  .function {
+    margin-top: 20px;
+  }
+  
+  .btn {
+    border: 0;
+    margin-left: 2px;
+    color: white;
+    background-color: #ff5e14;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+
+  
