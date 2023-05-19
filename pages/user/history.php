@@ -129,7 +129,7 @@ if ($result->num_rows > 0) : ?>
 <?php endif; ?>
 <?php 
 
-$sql = "SELECT quantity, price, point_of_departure, destination, trip_date, status, name_drivers, phone 
+$sql = "SELECT id_bookcar, quantity, price, point_of_departure, destination, trip_date, status, name_drivers, phone 
         FROM book_cars b
         JOIN trips  t ON b.id_trips= t.id_trips
         JOIN drivers d ON d.id_drivers = t.id_drivers
@@ -154,7 +154,7 @@ $result = mysqli_query($conn, $sql);
               <p class="card-text">Lái xe: <?php echo $row['name_drivers'] . ' (Số điện thoại: ' . $row['phone'] . ')'; ?></p>
               <?php if ($row['status'] == 'Chưa chạy') :
                 ?>
-                <a href="./Booking.php?php echo $row['id_book_cars'];?>" class="btn btn-primary"> Sửa thông tin đặt xe </a>
+                <a href="./edit_booking.php?book=<?php echo $row['id_bookcar'];?>" class="btn btn-primary"> Sửa thông tin đặt xe </a>
               <?php endif; ?>
             </div>
           </div>

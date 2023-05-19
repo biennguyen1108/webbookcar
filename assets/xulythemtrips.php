@@ -11,15 +11,18 @@ $point_of_departure = $_POST["point_of_departure"];
 $destination = $_POST["destination"];
 $trip_date = $_POST["trip_date"];
 $currentDateTime = new DateTime();
-
+$currentDateTime1 = $currentDateTime->getTimestamp() * 1000;
 $userInput = $trip_date;
-// Thời gian nhập vào (định dạng: Y-m-d)
-$userInputDateTime = $trip_date;
+$userInput1= strtotime($userInput);
+$userInput2= $userInput1 *1000;
 
+// Thời gian nhập vào (định dạng: Y-m-d)
 $status = '';
-if ($userInputDateTime > $currentDateTime) {
+if ($userInput2 < $currentDateTime1) {
   $status = 'Đã chạy';
-} else if ($userInputDateTime < $currentDateTime) {
+} else if ($userInput2 > $currentDateTime1) {
+
+ 
   $status = 'Chưa chạy';
 } else {
   $status = 'Đang chạy';

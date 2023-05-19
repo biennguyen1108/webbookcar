@@ -1,12 +1,11 @@
 <?php
 if (isset($_GET['delete'])) {
     $id = $_GET['delete'];
-
+    $sql="SET FOREIGN_KEY_CHECKS = 0";
+    
     require_once 'connectdb.php';
-
-    // First, delete the associated records in the `trips` table
-    $delete_trips_sql = "DELETE FROM trips WHERE id_vehicle = $id";
-    mysqli_query($conn, $delete_trips_sql);
+    $conn->query($sql);
+   
 
     // Then, delete the vehicle from the `vehicles` table
     $delete_vehicle_sql = "DELETE FROM vehicles WHERE id_vehicle = $id";

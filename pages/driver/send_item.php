@@ -155,6 +155,7 @@
                                 <th>Lái xe</th>
                                 <th>Ngày khởi hành</th>
                                 <th>Phương thức thanh toán</th>
+                                <th>Trạng thái</th>
                                 <th>Mô tả</th>  
                                  <th>Giá</th>
                                
@@ -163,6 +164,25 @@
 
             // Hiển thị từng bản ghi
             while($row = $result->fetch_assoc()) {
+                $currentDateTime = new DateTime();
+                        $currentDateTime1 = $currentDateTime->getTimestamp() * 1000;
+                        $userInput = $row['trip_date'];
+                        $userInput1 = strtotime($userInput);
+                        $userInput2 = $userInput1 * 1000;
+                
+                        // Xác định trạng thái dựa trên ngày hiện tại và ngày khởi hành
+                        $status = '';
+                        if ($userInput2 < $currentDateTime1) {
+                            $status = 'Đã giao';
+                        } else if ($userInput2 > $currentDateTime1) {
+                            $status = 'Chưa giao';
+                        } else {
+                            $status = 'Đang giao';
+                        }
+                        // Cập nhật trạng thái của items trong cơ sở dữ liệu
+                        $id_trip = $row['id_trips'];
+                        $updateStatusQuery = "UPDATE items SET status_item = '$status' WHERE id_trips = '$id_trip'";
+                        mysqli_query($conn, $updateStatusQuery);
             echo "
             <tbody>
                         <tr>
@@ -176,6 +196,7 @@
                             <td>".$row["name_drivers"]."</td>
                             <td>".$row["trip_date"]."</td>
                             <td>".$row["method"]."</td>
+                            <td>".$row["status_item"]."</td>
                             <td>".$row["amount"]."</td>
                             <td>".$row["price"]."</td>
                         </tr>

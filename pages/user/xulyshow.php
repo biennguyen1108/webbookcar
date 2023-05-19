@@ -129,6 +129,8 @@
       $form_pickUp_locations = $_POST['point_of_departure'];
       $form_drop_location = $_POST['destination'];
       $time = $_POST['time'];
+
+      //select thoông tin từ 3 bảng trips, vehicles, drivers ra để show chuyến đi hợp lệ
       $sql = "SELECT trips.id_trips,vehicles.vehicle_type,vehicles.id_vehicle,drivers.id_drivers, point_of_departure, vehicles.image,destination, trip_date, price_book, price_ship, 
             name_drivers , name_vehicles   FROM trips ,vehicles , drivers
             WHERE point_of_departure = '$form_pickUp_locations' 
@@ -136,7 +138,7 @@
             AND trip_date > '$time'
             AND trips.id_drivers = drivers.id_drivers 
             AND trips.id_vehicle = vehicles.id_vehicle ";
-      $result = mysqli_query($conn, $sql);
+      $result = mysqli_query($conn, $sql);  
       if (mysqli_num_rows($result) > 0) {
         while ($row = mysqli_fetch_assoc($result)) {
       ?><div class="trip-card">

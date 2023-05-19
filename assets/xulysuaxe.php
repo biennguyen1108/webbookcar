@@ -21,15 +21,18 @@
         
         if(mysqLi_query($conn, $updatesql)){
             // echo "Thành công";
-            header("Location:../pages/driver/Vehicles.php");
+            echo "<script>
+            alert ('Bạn đã chỉnh sửa thành công');
+            window.location.href ='../pages/driver/Vehicles.php'</script>";
         }
     }
     else{
         $updatesql = "UPDATE vehicles SET name_vehicles='$name',vehicle_type='$idvehicle_type',  capacity='$capacity', seat='$seat', description='$description' WHERE id_vehicle=$id";
         if(mysqLi_query($conn, $updatesql)){
             // echo "Thành công";
-            header("Location:../pages/driver/Vehicles.php");
-        }
+            echo "<script>
+            alert ('Bạn đã chỉnh sửa thành công');
+            window.location.href ='../pages/driver/Vehicles.php'</script>";        }
     }
     
 ?>

@@ -453,6 +453,8 @@ else
                     </button>
 
                 </form>
+
+                
                 <form id="register" method="post" action="../Project-PHP/assets/dangkiuser.php" class="input-group">
                     <input type="text" class="input-field" style="color:white" name="username" id="userres"
                         placeholder="User Name" required>
@@ -460,8 +462,7 @@ else
                         placeholder="Password" required>
                     <input type="password" class="input-field" style="color:white" name="password" id="passwordres"
                         placeholder="Enter Password" required>
-                    <input type="hidden" class="input-field" id="role"
-                        name="role" value="user" required>
+                    <input type="hidden" class="input-field" id="role" name="role" value="user" required>
                         <span id="boot-icon" class="bi bi-eye" style="font-size:10rem"></span>
                         <div><input type="checkbox" class="check-box">
                         <span>I agree to

@@ -163,13 +163,35 @@
                         if (!$conn) {
                             die("Kết nối không thành công: " . mysqli_connect_error());
                         }
-
-                        $sql = "SELECT id_trips, point_of_departure,destination,trip_date,status,price_book,price_ship,name_drivers ,name_vehicles
-     FROM vehicles , trips ,drivers WHERE trips.id_drivers = drivers.id_drivers AND trips.id_vehicle = vehicles.id_vehicle";
-                        $result = $conn->query($sql);
-
-                        if ($result->num_rows > 0) {
-                            while ($row = $result->fetch_assoc()) {
+                        $sql = "SELECT id_trips, point_of_departure, destination, trip_date, status, price_book, price_ship, name_drivers, name_vehicles
+                        FROM vehicles, trips, drivers
+                        WHERE trips.id_drivers = drivers.id_drivers AND trips.id_vehicle = vehicles.id_vehicle";
+                $result = $conn->query($sql);
+                
+                // Kiểm tra xem có dữ liệu trả về hay không
+                if ($result->num_rows > 0) {
+                    while ($row = $result->fetch_assoc()) {
+                        // Lấy ngày hiện tại và ngày khởi hành từ cơ sở dữ liệu
+                        $currentDateTime = new DateTime();
+                        $currentDateTime1 = $currentDateTime->getTimestamp() * 1000;
+                        $userInput = $row['trip_date'];
+                        $userInput1 = strtotime($userInput);
+                        $userInput2 = $userInput1 * 1000;
+                
+                        // Xác định trạng thái dựa trên ngày hiện tại và ngày khởi hành
+                        $status = '';
+                        if ($userInput2 < $currentDateTime1) {
+                            $status = 'Đã chạy';
+                        } else if ($userInput2 > $currentDateTime1) {
+                            $status = 'Chưa chạy';
+                        } else {
+                            $status = 'Đang chạy';
+                        }
+                
+                        // Cập nhật trạng thái của chuyến đi trong cơ sở dữ liệu
+                        $id_trip = $row['id_trips'];
+                        $updateStatusQuery = "UPDATE trips SET status = '$status' WHERE id_trips = '$id_trip'";
+                        mysqli_query($conn, $updateStatusQuery);
                         ?>
                                 <tr>
                                     <td><?php echo $row["id_trips"] ?></td>

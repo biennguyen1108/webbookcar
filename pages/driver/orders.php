@@ -149,8 +149,12 @@
     // FROM trips, orders , book_cars ,payment WHERE orders.id_trips = trips.id_trips   AND orders.id_payment = payment.id_payment AND book_cars.id_bookcar= payment.id_bookcar";
     $sql= "SELECT*FROM drivers, trips, orders , book_cars ,payment,users WHERE orders.id_trips = trips.id_trips   AND orders.id_payment = payment.id_payment AND book_cars.id_bookcar= payment.id_bookcar AND  users.id_users =book_cars.id_users AND trips.id_drivers= drivers.id_drivers  ";
     if($result = $conn->query($sql)){
-       
+      
+
+        $query = mysqli_query($conn,$sql);
             if ($result->num_rows > 0) {
+                   
+
             echo "<table class='table' style='padding: 5px;'>
                         <thead>
                             <tr>
@@ -163,6 +167,7 @@
                                 <th>Ngày khởi hành</th>
                                 <th>Phương thức thanh toán</th>
                                 <th>Số lượng chỗ ngồi</th>  
+                                <th>Trạng thái</th>
                                 <th>Giá</th>
                                
                             </tr>
@@ -171,13 +176,24 @@
             // Hiển thị từng bản ghi
             while($row = $result->fetch_assoc()) {
                 $currentDateTime = new DateTime();
-                $userInput = $row['trip_date'];
-                $id = $row ['id_orders'];
-                // Thời gian nhập vào (định dạng: Y-m-d H:i:s)
-                $userInputDateTime = DateTime::createFromFormat('Y-m-d H:i:s', $userInput);
-                if ($userInputDateTime < $currentDateTime) {
-                    $sql= "UPDATE orders SET status = 'Chưa chạy' WHERE id_orders = '$id';";
-                }
+                        $currentDateTime1 = $currentDateTime->getTimestamp() * 1000;
+                        $userInput = $row['trip_date'];
+                        $userInput1 = strtotime($userInput);
+                        $userInput2 = $userInput1 * 1000;
+                
+                        // Xác định trạng thái dựa trên ngày hiện tại và ngày khởi hành
+                        $status = '';
+                        if ($userInput2 < $currentDateTime1) {
+                            $status = 'Đã chạy';
+                        } else if ($userInput2 > $currentDateTime1) {
+                            $status = 'Chưa chạy';
+                        } else {
+                            $status = 'Đang chạy';
+                        }
+                        // Cập nhật trạng thái của chuyến đi trong cơ sở dữ liệu
+                        $id_trip = $row['id_trips'];
+                        $updateStatusQuery = "UPDATE orders SET status = '$status' WHERE id_trips = '$id_trip'";
+                        mysqli_query($conn, $updateStatusQuery);
             echo "
             <tbody>
                         <tr>
@@ -191,6 +207,7 @@
                             <td>".$row["trip_date"]."</td>
                             <td>".$row["method"]."</td>
                             <td>".$row["amount"]."</td>
+                            <td>".$row['status']."</td>
                             <td>".$row["price"]."</td>
                            
                            

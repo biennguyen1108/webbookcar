@@ -133,14 +133,14 @@
                 <table class='table' style='padding: 5px;'>
                     <thead>
                         <tr>
-                            <th>ID</th>
-                            <th>Tên</th>
-                            <th>Loại phương tiện</th>
-                            <th>Hình ảnh</th>
-                            <th>Khả năng</th>
-                            <th>Số chỗ</th>
-                            <th>Mô tả</th>
-                            <th>Tùy chọn</th>
+                            <th style="width:3%">ID</th>
+                            <th style="width:7%">Tên</th>
+                            <th style="width:12%">Loại phương tiện</th>
+                            <th style="width:10%">Hình ảnh</th>
+                            <th style="width:8%">Khả năng</th>
+                            <th style="width:7%">Số chỗ</th>
+                            <th style="width:20%">Mô tả</th>
+                            <th style="width:9%">Tùy chọn</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -167,7 +167,6 @@
                             // $i = 1;
                             while ($row = $result->fetch_assoc()) {
                         ?>
-
                                 <tr>
                                     <td><?php echo  $row['id_vehicle'] ?></td>
                                     <td><?php echo  $row['name_vehicles'] ?></td>

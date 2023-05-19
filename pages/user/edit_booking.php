@@ -1,10 +1,13 @@
+<?php 
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Chỉnh sửa</title>
     <style>
  /* Đưa nội dung vào một khu vực giới hạn rộng */
 .container {
@@ -16,72 +19,57 @@
   border-radius: 5px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
-.form-group {
-  margin-bottom: 5px;
-}
+  /* CSS cho form */
+  form {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
 
-label {
-  display: block;
-  font-size: 18px;
-  font-weight: bold;
-  margin-bottom: 5px;
-}
+  label {
+    display: block;
+    margin-bottom: 5px;
+  }
 
-input[type="text"],
-textarea {
-  width: 100%;
-  padding: 15px;
-  border: 2px solid #ccc;
-  border-radius: 5px;
-  font-size: 16px;
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 400;
-  box-sizing: border-box;
-  margin-top: 5px;
-  /* margin-bottom: 20px; */
-  transition: border-color 0.3s ease-in-out;
-}
+  select,
+  input[type="number"] {
+    width: 100%;
+    padding: 5px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+  }
 
-input[type="text"]:focus,
-textarea:focus {
-  outline: none;
-  border-color: #007bff;
-}
+  input[type="submit"] {
+    width: auto;
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+  }
 
-select {
-  width: 100%;
-  padding: 15px;
-  border: 2px solid #ccc;
-  border-radius: 5px;
-  font-size: 16px;
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 400;
-  box-sizing: border-box;
-  margin-top: 5px;
-  /* margin-bottom: 20px; */
-  appearance: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  background-repeat: no-repeat;
-  background-position: right 10px center;
-}
+  /* CSS cho phần thông tin chi tiết về trip */
+  #tripDetails {
+    margin-top: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+  }
 
-button[type="submit"] {
-  background-color: #007bff;
-  color: #fff;
-  padding: 15px 30px;
-  border: none;
-  border-radius: 5px;
-  font-size: 18px;
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 600;
-  cursor: pointer;
-  transition: background-color 0.3s ease-in-out;
-}
+  #tripDetails label {
+    display: inline-block;
+    width: 120px;
+    font-weight: bold;
+  }
 
-button[type="submit"]:hover {
-  background-color: #0069d9;
-}
+  #tripDetails span {
+    font-weight: normal;
+  }
 
 
     </style>
@@ -89,64 +77,109 @@ button[type="submit"]:hover {
 <body>
     
 <?php
-session_start();
 
 include "./connect.php";
 
-$id_item = $_GET['id'];
+$id_book = $_GET['book'];
 $id_user =$_SESSION['id_user'];
-$sql = "SELECT i.id_items, i.name, i.weigh, i.description, i. quantity, i.price, i.status_item, t.price_ship, t.trip_date
-        FROM items i
-        JOIN trips t ON i.id_trips= t.id_trips
-        WHERE i.id_users = '$id_user' and id_items = '$id_item'";
 
+error_reporting(0);
+$sql = "SELECT *
+        FROM `orderS`
+        JOIN book_cars ON `orderS`.id_trips = book_cars.id_trips
+        JOIN tripS ON `orders`.id_trips = trips.id_trips
+        WHERE `orders`.id_orders = $id_book";
 $result = mysqli_query($conn, $sql);
-$row = mysqli_fetch_assoc($result);
-?>
-<div class="container">
-<form action="update_item.php" method="POST">
-  <input type="hidden" name="id" value="<?php echo $row['id_items']; ?>">
-  <div class="form-group">
-    <label for="name">Tên sản phẩm</label>
-    <input type="text" class="form-control" id="name" name="name" value="<?php echo $row['name']; ?>">
-  </div>
-  <div class="form-group">
-    <label for="weigh">Trọng lượng</label>
-    <input type="text" class="form-control" id="weigh" name="weigh" value="<?php echo $row['weigh']; ?>">
-  </div>
-  <div class="form-group">
-    <label for="description">Mô tả</label>
-    <textarea class="form-control" id="description" name="description"><?php echo $row['description']; ?></textarea>
-  </div>
-  <div class="form-group">
-    <label for="quantity">Số lượng</label>
-    <input type="text" class="form-control" id="quantity" name="quantity" value="<?php echo $row['quantity']; ?>">
-  </div>
-  <div class="form-group">
-    <label for="price">Giá</label>
-    <input type="text" class="form-control" id="price" name="price" value="<?php echo $row['price']; ?>">
-  </div>
-  <div class="form-group">
-  <label for="status_item">Tình trạng</label>
-  <select class="form-control" id="status_item" name="status_item" disabled>
-    <option value="0" <?php if ($row['status_item'] == 0) echo 'selected'; ?>>Đang chờ xác nhận</option>
-    <option value="1" <?php if ($row['status_item'] == 1) echo 'selected'; ?>>Đang vận chuyển</option>
-    <option value="2" <?php if ($row['status_item'] == 2) echo 'selected'; ?>>Đã giao</option>
-  </select>
-</div>
 
-  <div class="form-group">
-    <label for="price_ship">Giá vận chuyển</label>
-    <input type="text" class="form-control" id="price_ship" name="price_ship" value="<?php echo $row['price_ship']; ?>" readonly>
+
+
+?>
+<form action="" method="post">
+  <label for="id_trips">Chọn ID Trip:</label>
+  <select name="id_trips" id="id_trips" onchange="getTripDetails()">
+    <?php
+    // Lấy danh sách id_trips khi status là "chưa chạy"
+    $query = "SELECT id_trips FROM trips WHERE status = 'Chưa chạy'";
+    $result = mysqli_query($conn, $query);
+    while ($row = mysqli_fetch_assoc($result)) {
+      echo "<option value=\"" . $row['id_trips'] . "\">" . $row['id_trips'] . "</option>";
+    }
+    ?>
+  </select>
+  <br>
+  <div id="tripDetails">
+
+
   </div>
-  <div class="form-group">
-    <label for="trip_date">Ngày chuyến xe</label>
-    <?php $tripDate = date("d-m-Y", strtotime($row['trip_date'])); ?>
-    <input type="text" class="form-control" id="trip_date" name="trip_date" value="<?php echo $tripDate; ?>" readonly>
-</div>
-<br>
-  <button type="submit" class="btn btn-primary">Cập nhật</button>
+  <label>Số lượng người:</label>
+  <input type="number" min="0" value="0" name="quantity" id="quantity" ><br>
+
+  <!-- Các trường thông tin khác -->
+
+  <input type="submit" name="submit" value="Cập nhật">
 </form>
+<?php 
+if (isset($_POST['submit'])) {
+  
+  $id_trips = $_POST['id_trips'];
+  $quantity = $_POST['quantity'];
+  $price_book = $_SESSION['price_book'];
+  $toltal_price = $quantity * $price_book;
+  // Cập nhật quantity, price và id_trips trong bảng book_cars
+  $updateBookCarsQuery = "UPDATE book_cars SET quantity = $quantity, price= $toltal_price WHERE id_users = $id_user AND id_bookcar = $id_book";
+  mysqli_query($conn, $updateBookCarsQuery);
+
+  echo "
+  <script>
+  alert('Cập nhật thành công!');
+  window.location.href = 'history.php';
+  </script>";
+  
+
+}
+
+mysqli_close($conn);
+?>
 </div>
+<script>
+  function getTripDetails() {
+    var idTrip = document.getElementById("id_trips").value;
+
+    // Gửi yêu cầu AJAX để lấy thông tin chi tiết về trips từ server
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
+        var tripDetails = JSON.parse(this.responseText);
+
+        // Cập nhật các trường thông tin từ trips trên form
+        document.getElementById("tripDetails").innerHTML = `
+        <label for="point_of_departure">Điểm đi:</label>
+        <input type="text" id="point_of_departure" value="${tripDetails.point_of_departure}" readonly><br>
+
+        <label for="destination">Điểm đến:</label>
+        <input type="text" id="destination" value="${tripDetails.destination}" readonly><br>
+
+        <label for="trip_date">Thời gian đón:</label>
+        <input type="text" id="trip_date" value="${tripDetails.trip_date}" readonly><br>
+
+        <label for="price_book">Giá của mỗi ghế:</label>
+        <input type="text" id="price_book" value="${tripDetails.price_book} nghìn đồng" readonly><br>
+
+        <label for="name_driver">Tài xế:</label>
+        <input type="text" id="name_driver" value="${tripDetails.name_drivers}" readonly><br>
+
+        <label for="phone_driver">Số điện thoại tài xe:</label>
+        <input type="text" id="phone_driver" value="${tripDetails.phone}" readonly><br>
+
+        `;
+      }
+    };
+    xhttp.open("GET", "get_trip_details.php?id_trip=" + idTrip, true);
+    xhttp.send();
+
+   
+  }
+  
+</script>
 </body>
 </html>
